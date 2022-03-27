@@ -16,11 +16,11 @@ class MenuAsal extends StatelessWidget {
     width = size.width;
     return Scaffold(
       appBar: AppBar(
-        title: Center(
-            child: Text(
+        centerTitle: true,
+        title: Text(
           "DudeLoka",
           style: TextStyle(color: Colors.black),
-        )),
+        ),
         backgroundColor: Colors.green,
       ),
       body: Obx(
@@ -36,17 +36,13 @@ class MenuAsal extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         Container(
-                          decoration: BoxDecoration(
-                              image: DecorationImage(
-                                  image: AssetImage("assets/img/lib.jpg"),
-                                  fit: BoxFit.cover)),
                           child: Column(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
                                 Container(
                                     margin: EdgeInsets.all(15),
                                     child: DataTable(
-                                      columns: [
+                                      columns: const <DataColumn>[
                                         DataColumn(label: Text("No")),
                                         DataColumn(label: Text("Nama Kota")),
                                       ],

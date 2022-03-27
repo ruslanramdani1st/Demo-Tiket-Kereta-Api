@@ -2,13 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:dudeloka/home_screen.dart';
 import 'package:dudeloka/views/menu_asal.dart';
 import 'package:dudeloka/views/menu_tujuan.dart';
+import 'package:dudeloka/views/menu_kereta.dart';
 
 class IndexScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text('DudeLoka'),
+          centerTitle: true,
+          title: Text(
+            "DudeLoka",
+            style: TextStyle(color: Colors.black),
+          ),
           backgroundColor: Colors.green,
         ),
         body: GridView.count(
@@ -31,12 +36,11 @@ class IndexScreen extends StatelessWidget {
                     mainAxisSize: MainAxisSize.min,
                     children: const <Widget>[
                       Icon(
-                        Icons.train_outlined,
+                        Icons.house,
                         size: 70,
                         color: Color.fromARGB(255, 57, 136, 135),
                       ),
-                      Text("Departure schedule",
-                          style: TextStyle(fontSize: 17.0)),
+                      Text("Kota Asal", style: TextStyle(fontSize: 17.0)),
                     ],
                   ),
                 ),
@@ -58,11 +62,37 @@ class IndexScreen extends StatelessWidget {
                     mainAxisSize: MainAxisSize.min,
                     children: const <Widget>[
                       Icon(
-                        Icons.payment,
+                        Icons.house_outlined,
                         size: 70,
                         color: Color.fromARGB(255, 57, 136, 135),
                       ),
-                      Text("Proof of payment",
+                      Text("Kota Tujuan", style: TextStyle(fontSize: 17.0)),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            Card(
+              margin: const EdgeInsets.all(9),
+              child: InkWell(
+                onTap: () {
+                  Navigator.of(context, rootNavigator: false).push(
+                    MaterialPageRoute(
+                      builder: (BuildContext context) => MenuKereta(),
+                    ),
+                  );
+                },
+                splashColor: Colors.blue,
+                child: Center(
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: const <Widget>[
+                      Icon(
+                        Icons.train_sharp,
+                        size: 70,
+                        color: Color.fromARGB(255, 57, 136, 135),
+                      ),
+                      Text("Jadwal Kereta Api",
                           style: TextStyle(fontSize: 17.0)),
                     ],
                   ),
